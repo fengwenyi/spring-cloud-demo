@@ -1,4 +1,5 @@
 rootProject.name = 'spring-cloud-demo'
 include 'demo-eureka-server'
 include 'demo-eureka-client'
+include 'demo-spring-cloud-feign-sentinel'
 
