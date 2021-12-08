@@ -1,3 +1,15 @@
 dependencies {
-    //api(":provider-api")
+//    api project("demo-spring-cloud-feign-sentinel:provider:provider-api")
+//    api project(":provider-api")
+//    api project(":provider:provider-api")
+//    api project(":demo-spring-cloud-feign-sentinel:provider:provider-api")
+
+//    implementation(project(":spring-boot-project:spring-boot-starters:spring-boot-starter"))
+
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+
+    implementation(project(":demo-spring-cloud-feign-sentinel:provider:provider-api"))
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'com.fengwenyi:api-spring-boot-starter:1.1.0'
 }

@@ -1,19 +1,14 @@
-plugins {
-    id 'java'
-}
-
-group 'com.fengwenyi'
-version '0.0.1-SNAPSHOT'
-
-repositories {
-    mavenCentral()
-}
-
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
-}
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'com.fengwenyi:api-spring-boot-starter:1.1.0'
 
-test {
-    useJUnitPlatform()
+//    compile("org.springframework.boot:spring-boot-starter-web") // 不能用
+//    compile("com.fengwenyi:api-spring-boot-starter:1.1.0") // 不能用
+
+//    api("org.springframework.boot:spring-boot-starter-web")
+//    api("com.fengwenyi:api-spring-boot-starter:1.1.0")
+
+//    optional("org.springframework.boot:spring-boot-starter-web") // 不能用
+//    optional("com.fengwenyi:api-spring-boot-starter:1.1.0") // 不能用
+
 }

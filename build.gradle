@@ -1,4 +1,4 @@
-plugins {
+/*plugins {
     id 'org.springframework.boot' version '2.6.0'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
@@ -40,19 +40,51 @@ dependencyManagement {
 
 test {
     useJUnitPlatform()
+}*/
+
+// 编译脚本
+buildscript {
+    ext {
+        // https://start.spring.io/actuator/info
+        springBootVersion = "2.6.1"
+        ext {
+            set('springBootAdminVersion', "2.4.3")
+            set('springCloudVersion', "2021.0.0")
+        }
+    }
+
+    // 仓库配置
+    repositories {
+        mavenLocal()
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/spring' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://repo.spring.io/release' }
+        maven { url 'https://repo.spring.io/milestone' }
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
 allprojects {
     group = 'com.fengwenyi'
     version = '0.0.1-SNAPSHOT'
+//    sourceCompatibility = JavaVersion.VERSION_17
+//    targetCompatibility = JavaVersion.VERSION_17
 }
 
 description = "Spring Cloud Demo"
 
 subprojects {
-    apply plugin: "java"
+//    apply plugin: "java"
+    apply plugin: "java-library"
     apply plugin: "org.springframework.boot"
     apply plugin: "io.spring.dependency-management"
+
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter-actuator'
@@ -72,6 +104,5 @@ subprojects {
         mavenLocal()
         maven { url "https://maven.aliyun.com/repository/public" }
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-        jcenter()
     }
 }
