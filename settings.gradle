@@ -1,5 +1,23 @@
 rootProject.name = 'spring-cloud-demo'
+
 include 'demo-eureka-server'
 include 'demo-eureka-client'
-include 'demo-spring-cloud-feign-sentinel'
+//include 'demo-spring-cloud-feign-sentinel'
+//include 'demo-spring-cloud-feign-sentinel:provider'
+//findProject(':demo-spring-cloud-feign-sentinel:provider')?.name = 'provider'
+include 'demo-spring-cloud-feign-sentinel:provider:provider-api'
+//findProject(':demo-spring-cloud-feign-sentinel:provider:provider-api')?.name = 'provider-api'
+include 'demo-spring-cloud-feign-sentinel:consumer-service'
+//findProject(':demo-spring-cloud-feign-sentinel:consumer-service')?.name = 'consumer-service'
+
+//file("${rootDir}/demo-spring-cloud-feign-sentinel").eachDirMatch(~/demo-spring-cloud-feign-sentinel.*/) {
+//    include "demo-spring-cloud-feign-sentinel:${it.name}"
+//}
+
+//
+//file("${rootDir}/demo-spring-cloud-feign-sentinel").eachDirMatch(~/demo-spring-cloud-feign-sentinel.*/) {
+//    include "demo-spring-cloud-feign-sentinel:${it.name}"
+//}
+include 'demo-spring-cloud-feign-sentinel:provider:provider-service'
+//findProject(':demo-spring-cloud-feign-sentinel:provider:provider-service')?.name = 'provider-service'
 
