@@ -12,8 +12,8 @@ spring:
         dir: logs/csp/
         switch-pid: true
       transport:
-        dashboard:
-        port:
+        dashboard: 10.255.23.26:8849
+        port: 8719
         heartbeat-interval-ms: 30000
 
 eureka:
