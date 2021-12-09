@@ -12,6 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController implements IHelloApi {
     @Override
     public ResponseTemplate<String> sayHi(String name) {
+
+        try {
+            Thread.sleep(10 * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         var hi = "Hi ";
         return ResponseTemplate.success(hi + name);
     }

@@ -1,11 +1,37 @@
 server:
   port: 9002
-
 spring:
   application:
     name: concumser-service
+  main:
+    allow-circular-references: true
+  cloud:
+    sentinel:
+      enabled: true
+      log:
+        dir: logs/csp/
+        switch-pid: true
+      transport:
+        dashboard:
+        port:
+        heartbeat-interval-ms: 30000
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 30000
+        readTimeout: 30000
+        loggerLevel: full
+        decode404: false
+        metrics.enabled: false
+  okhttp:
+    enabled: true
+  sentinel:
+    enabled: true

@@ -6,4 +6,5 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'com.fengwenyi:api-spring-boot-starter:1.1.0'
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel'
 }
