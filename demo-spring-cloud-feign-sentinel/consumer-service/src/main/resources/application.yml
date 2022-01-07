@@ -21,16 +21,17 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 
-
+#feign.
 feign:
   client:
     config:
       default:
         connectTimeout: 1000
-        readTimeout: 4000
+        readTimeout: 1000
         loggerLevel: full
         decode404: false
         metrics.enabled: false
+        retryer: com.fengwenyi.springclouddemo.demospringcloudfeignsentinel.consumerservice.MyRetryer
       provider-get:
         connectTimeout: 1000
         readTimeout: 6000

@@ -2,6 +2,7 @@ package com.fengwenyi.springclouddemo.demospringcloudfeignsentinel.providerservi
 
 import com.fengwenyi.api.result.ResponseTemplate;
 import com.fengwenyi.springclouddemo.demospringcloudfeignsentinel.providerapi.IHelloApi;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
@@ -11,6 +12,7 @@ import java.util.Map;
  * @since 2021-12-08
  */
 @RestController
+@Slf4j
 public class HelloController implements IHelloApi {
     @Override
     public ResponseTemplate<String> sayHi(String name) {
@@ -28,8 +30,11 @@ public class HelloController implements IHelloApi {
     @Override
     public ResponseTemplate<String> get() {
 
+
+        log.info("request");
+
         try {
-            Thread.sleep(5 * 1000);
+            Thread.sleep(10 * 1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
