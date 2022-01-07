@@ -26,11 +26,17 @@ feign:
   client:
     config:
       default:
-        connectTimeout: 30000
-        readTimeout: 30000
+        connectTimeout: 1000
+        readTimeout: 4000
         loggerLevel: full
         decode404: false
         metrics.enabled: false
+      provider-get:
+        connectTimeout: 1000
+        readTimeout: 6000
+      provider-post:
+        connectTimeout: 1000
+        readTimeout: 20000
   okhttp:
     enabled: true
   sentinel:
