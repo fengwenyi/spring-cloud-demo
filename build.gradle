@@ -46,10 +46,10 @@ test {
 buildscript {
     ext {
         // https://start.spring.io/actuator/info
-        springBootVersion = "2.6.1"
+        springBootVersion = "2.6.3"
         ext {
             set('springBootAdminVersion', "2.4.3")
-            set('springCloudVersion', "2021.0.0")
+            set('springCloudVersion', "2021.0.1")
             set('springCloudAlibabaVersion', "2021.1")
         }
     }
@@ -84,8 +84,8 @@ subprojects {
     apply plugin: "org.springframework.boot"
     apply plugin: "io.spring.dependency-management"
 
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter-actuator'
