@@ -22,4 +22,5 @@ include 'demo-spring-cloud-feign-sentinel:provider:provider-service'
 //findProject(':demo-spring-cloud-feign-sentinel:provider:provider-service')?.name = 'provider-service'
 include 'demo-spring-boot-admin-server'
 include 'demo-spring-boot-admin-client'
+include 'demo-spring-cloud-alibaba-sentinel'
 
