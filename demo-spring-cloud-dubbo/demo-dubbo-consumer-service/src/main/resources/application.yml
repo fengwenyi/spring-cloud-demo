@@ -1,0 +1,31 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: demo-spring-cloud-dubbo-consumer-service
+
+  main:
+    allow-circular-references: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+dubbo:
+  application:
+    id: ${spring.application.name}
+    name: ${spring.application.name}
+    # 禁用QOS同一台机器可能会有端口冲突现象
+    qos-enable: false
+    qos-accept-foreign-ip: false
+  # 配置注册中心
+  registry:
+    # address: nacos://${spring.cloud.nacos.discovery.server-addr}
+    address: spring-cloud://localhost:8761
+    register: false
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 20881

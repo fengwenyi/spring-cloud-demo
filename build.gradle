@@ -7,6 +7,8 @@ buildscript {
             set('springBootAdminVersion', "2.7.2")
             set('springCloudVersion', "2021.0.3")
             set('springCloudAlibabaVersion', "2.2.8.RELEASE")
+            set('apiResultVersion', "2.7.0")
+            set('JavaLibVersion', "2.1.6")
         }
     }
 
@@ -44,7 +46,8 @@ subprojects {
     targetCompatibility = JavaVersion.VERSION_1_8
 
     dependencies {
-        implementation 'org.springframework.boot:spring-boot-starter-actuator'
+        api 'org.springframework.boot:spring-boot-starter-actuator'
+        api "com.fengwenyi:JavaLib:${JavaLibVersion}"
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -60,7 +63,12 @@ subprojects {
 
     repositories {
         mavenLocal()
-        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/spring' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://repo.spring.io/release' }
+        maven { url 'https://repo.spring.io/milestone' }
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
     }
 }

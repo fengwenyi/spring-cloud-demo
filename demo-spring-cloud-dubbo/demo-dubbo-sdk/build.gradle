@@ -1,0 +1,3 @@
+dependencies {
+    api "com.fengwenyi:api-result:${apiResultVersion}"
+}
