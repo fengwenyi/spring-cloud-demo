@@ -12,3 +12,10 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+dubbo:
+  # 配置注册中心
+  registry:
+    address: spring-cloud://localhost
+  scan:
+    base-packages: com.fengwenyi.springcloud.dubbo.sdk.service

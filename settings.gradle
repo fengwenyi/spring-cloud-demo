@@ -40,4 +40,5 @@ include 'demo-spring-cloud-dubbo:demo-dubbo-provider-service'
 findProject(':demo-spring-cloud-dubbo:demo-dubbo-provider-service')?.name = 'demo-dubbo-provider-service'
 include 'demo-spring-cloud-dubbo:demo-dubbo-consumer-service'
 findProject(':demo-spring-cloud-dubbo:demo-dubbo-consumer-service')?.name = 'demo-dubbo-consumer-service'
+include 'demo-spring-cloud-grpc'
 
