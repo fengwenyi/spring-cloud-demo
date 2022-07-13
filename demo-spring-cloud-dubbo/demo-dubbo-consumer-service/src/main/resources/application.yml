@@ -4,6 +4,10 @@ server:
 spring:
   application:
     name: demo-spring-cloud-dubbo-consumer-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
 
   main:
     allow-circular-references: true
@@ -23,11 +27,14 @@ dubbo:
   # 配置注册中心
   registry:
     # address: nacos://${spring.cloud.nacos.discovery.server-addr}
-    address: spring-cloud://localhost
+    address: spring-cloud://127.0.0.1:8848
 #    register: false
-#  protocol:
-#    id: dubbo
-#    name: dubbo
-#    port: 20881
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 20882
   scan:
     base-packages: com.fengwenyi.springcloud.dubbo.sdk.service
+  cloud:
+    # 要订阅的服务
+    subscribed-services: demo-spring-cloud-dubbo-provider-service

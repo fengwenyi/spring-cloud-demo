@@ -1,0 +1,6 @@
+### POST param
+POST http://localhost:8002/demo/userAdd
+Content-Type: application/json
+
+{
+}
