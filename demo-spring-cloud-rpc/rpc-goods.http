@@ -1,0 +1,13 @@
+### rpc goods list
+GET http://localhost:9090/rpc/goods-list
+
+### rpc goods get
+GET http://localhost:9090/rpc/goods-get?id=3
+
+### rpc goods search
+GET http://localhost:9090/rpc/goods-search?name=小米
+#GET http://localhost:9090/rpc/goods-search?price=5000
+#GET http://localhost:9090/rpc/goods-search?name=小米&price=5000
+
+### rpc goods add
+GET http://localhost:9090/rpc/goods-add

@@ -41,4 +41,13 @@ findProject(':demo-spring-cloud-dubbo:demo-dubbo-provider-service')?.name = 'dem
 include 'demo-spring-cloud-dubbo:demo-dubbo-consumer-service'
 findProject(':demo-spring-cloud-dubbo:demo-dubbo-consumer-service')?.name = 'demo-dubbo-consumer-service'
 include 'demo-spring-cloud-grpc'
+include 'demo-spring-cloud-rpc'
+include 'demo-spring-cloud-rpc:rpc-core'
+findProject(':demo-spring-cloud-rpc:rpc-core')?.name = 'rpc-core'
+include 'demo-spring-cloud-rpc:rpc-sample'
+findProject(':demo-spring-cloud-rpc:rpc-sample')?.name = 'rpc-sample'
+include 'demo-spring-cloud-rpc:rpc-api'
+findProject(':demo-spring-cloud-rpc:rpc-api')?.name = 'rpc-api'
+include 'demo-spring-cloud-rpc:rpc-model'
+findProject(':demo-spring-cloud-rpc:rpc-model')?.name = 'rpc-model'
 

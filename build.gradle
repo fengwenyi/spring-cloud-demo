@@ -2,13 +2,14 @@
 buildscript {
     ext {
         // https://start.spring.io/actuator/info
-        springBootVersion = "2.7.1"
+        springBootVersion = "2.7.4"
         ext {
-            set('springBootAdminVersion', "2.7.2")
-            set('springCloudVersion', "2021.0.3")
+            set('springBootAdminVersion', "2.7.6")
+            set('springCloudVersion', "2021.0.4")
             set('springCloudAlibabaVersion', "2021.1")
             set('apiResultVersion', "2.7.0")
-            set('JavaLibVersion', "2.1.6")
+            set('JavaLibVersion', "2.2.0")
+            set('okhttpVersion', "4.10.0")
         }
     }
 
