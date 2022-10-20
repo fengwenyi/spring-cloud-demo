@@ -1,0 +1,5 @@
+dependencies {
+    api(project(':demo-spring-cloud-rpc:rpc-core'))
+    api(project(':demo-spring-cloud-rpc:rpc-model'))
+    implementation "com.fengwenyi:api-result:${apiResultVersion}"
+}
