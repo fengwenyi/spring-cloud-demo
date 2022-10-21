@@ -1,0 +1,129 @@
+Spring Cloud OpenFeign
+
+
+
+梳理：
+
+启动流程：
+1. 注册默认配置
+2. 扫描 @FeignClient 注解的接口
+3. 生成动态代理类并注入到 spring bean 中
+
+
+
+org.springframework.cloud.openfeign.EnableFeignClients *
+	-> org.springframework.cloud.openfeign.FeignClientsRegistrar *
+		-> org.springframework.cloud.openfeign.FeignClientsRegistrar#registerBeanDefinitions    
+			- org.springframework.context.annotation.ImportBeanDefinitionRegistrar
+			-> org.springframework.cloud.openfeign.FeignClientsRegistrar#registerDefaultConfiguration
+				-> org.springframework.cloud.openfeign.FeignClientsRegistrar#registerClientConfiguration 
+					=> org.springframework.cloud.openfeign.FeignClientSpecification // org.springframework.beans.factory.support.BeanDefinitionBuilder
+			-> org.springframework.cloud.openfeign.FeignClientsRegistrar#registerFeignClients
+				-> org.springframework.cloud.openfeign.FeignClientsRegistrar#registerFeignClient *
+					-> org.springframework.cloud.openfeign.FeignClientFactoryBean 
+						- org.springframework.beans.factory.support.AbstractBeanDefinition
+						- org.springframework.beans.factory.config.BeanDefinitionHolder
+						- org.springframework.beans.factory.support.BeanDefinitionReaderUtils#registerBeanDefinition
+					-> org.springframework.cloud.openfeign.FeignClientsRegistrar#registerOptionsBeanDefinition
+
+					org.springframework.cloud.openfeign.FeignClientFactoryBean#getObject *
+						-> org.springframework.cloud.openfeign.FeignClientFactoryBean#getTarget *
+							- org.springframework.cloud.openfeign.FeignContext // org.springframework.cloud.openfeign.FeignAutoConfiguration
+							-> org.springframework.cloud.openfeign.FeignClientFactoryBean#feign
+							-> feign.Client
+							-> org.springframework.cloud.openfeign.FeignClientFactoryBean#applyBuildCustomizers
+								-> org.springframework.cloud.openfeign.FeignBuilderCustomizer
+							-> org.springframework.cloud.openfeign.Targeter *
+								-> org.springframework.cloud.openfeign.DefaultTargeter#target
+									-> feign.Feign.Builder#target(feign.Target<T>)
+										-> feign.Feign.Builder#build
+											- Client client = Capability.enrich(this.client, capabilities);
+											-> feign.SynchronousMethodHandler.Factory
+											-> feign.ReflectiveFeign.ParseHandlersByName#ParseHandlersByName
+											-> feign.ReflectiveFeign#ReflectiveFeign
+										-> feign.Feign#newInstance
+											-> feign.ReflectiveFeign#newInstance *
+												-> nameToHandler - feign.ReflectiveFeign.ParseHandlersByName#apply
+													-> feign.Contract#parseAndValidateMetadata
+													-> feign.SynchronousMethodHandler.Factory#create
+														-> feign.SynchronousMethodHandler#SynchronousMethodHandler
+													=> Map<String, MethodHandler>
+												- methodToHandler
+												- defaultMethodHandlers
+												-> InvocationHandler
+													-> feign.InvocationHandlerFactory.Default#create
+
+												T proxy = (T) Proxy.newProxyInstance(target.type().getClassLoader(),
+        										new Class<?>[] {target.type()}, handler);
+
+												defaultMethodHandler.bindTo(proxy);
+
+												<= proxy
+
+
+
+
+	- Feign.class					
+org.springframework.cloud.openfeign.FeignAutoConfiguration *
+	- FeignClientProperties.class
+	- FeignHttpClientProperties.class
+	- FeignEncoderProperties.class
+	- FeignContext
+	- CachingCapability
+	- FeignJacksonConfiguration
+	- DefaultFeignTargeterConfiguration
+		=> DefaultTargeter
+	- CircuitBreakerPresentFeignTargeterConfiguration
+	- HttpClientFeignConfiguration
+	- OkHttpFeignConfiguration
+	- HttpClient5FeignConfiguration
+
+
+调用流程：
+
+xxxFeignClient
+ -> feign.ReflectiveFeign.FeignInvocationHandler#invoke
+ 	- Map<Method, MethodHandler> dispatch;
+	-> feign.InvocationHandlerFactory.MethodHandler#invoke
+		-> feign.SynchronousMethodHandler#invoke
+			-> feign.SynchronousMethodHandler#executeAndDecode
+				-> feign.AsyncResponseHandler#handleResponse
+
+
+问题：
+1. 如何拦截的？不是通过拦截，是通过 jdk 动态代理
+2. 动态代理类是如何创建的？ 在  FeignClientFactoryBean#getObject()中产生。
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

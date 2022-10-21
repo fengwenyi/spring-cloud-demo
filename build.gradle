@@ -2,25 +2,34 @@
 buildscript {
     ext {
         // https://start.spring.io/actuator/info
-        springBootVersion = "2.7.4"
-        ext {
+        springBootVersion = "2.7.5"
+        springBootAdminVersion = "2.7.6"
+        springCloudVersion = "2021.0.4"
+        springCloudAlibabaVersion = "2021.1"
+        apiResultVersion = "2.7.0"
+        JavaLibVersion = "2.2.0"
+        okhttpVersion = "4.10.0"
+        /*ext {
             set('springBootAdminVersion', "2.7.6")
             set('springCloudVersion', "2021.0.4")
             set('springCloudAlibabaVersion', "2021.1")
-            set('apiResultVersion', "2.7.0")
+            set('apiResultVersion', "2.7.2")
             set('JavaLibVersion', "2.2.0")
             set('okhttpVersion', "4.10.0")
-        }
+        }*/
     }
 
     // 仓库配置
-    repositories {
+    /*repositories {
         mavenLocal()
         maven { url 'https://maven.aliyun.com/repository/central' }
         maven { url 'https://maven.aliyun.com/repository/spring' }
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://repo.spring.io/release' }
         maven { url 'https://repo.spring.io/milestone' }
+    }*/
+    repositories {
+        jcenter()
     }
 
     dependencies {
@@ -56,6 +65,7 @@ subprojects {
 
     dependencyManagement {
         imports {
+            mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
             mavenBom "de.codecentric:spring-boot-admin-dependencies:${springBootAdminVersion}"
             mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
             mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:${springCloudAlibabaVersion}"
@@ -63,6 +73,10 @@ subprojects {
     }
 
     repositories {
+        jcenter()
+    }
+
+    /*repositories {
         mavenLocal()
         maven { url 'https://maven.aliyun.com/repository/public' }
         maven { url 'https://maven.aliyun.com/repository/central' }
@@ -71,5 +85,5 @@ subprojects {
         maven { url 'https://repo.spring.io/release' }
         maven { url 'https://repo.spring.io/milestone' }
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-    }
+    }*/
 }

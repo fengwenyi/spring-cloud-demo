@@ -50,4 +50,6 @@ include 'demo-spring-cloud-rpc:rpc-api'
 findProject(':demo-spring-cloud-rpc:rpc-api')?.name = 'rpc-api'
 include 'demo-spring-cloud-rpc:rpc-model'
 findProject(':demo-spring-cloud-rpc:rpc-model')?.name = 'rpc-model'
+include 'demo-spring-cloud-rpc:openfeign-sample'
+findProject(':demo-spring-cloud-rpc:openfeign-sample')?.name = 'openfeign-sample'
 

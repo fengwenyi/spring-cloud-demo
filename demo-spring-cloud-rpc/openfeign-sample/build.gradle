@@ -1,0 +1,6 @@
+dependencies {
+    api(project(':demo-spring-cloud-rpc:rpc-model'))
+    implementation "com.fengwenyi:api-result:${apiResultVersion}"
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+}
