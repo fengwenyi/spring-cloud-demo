@@ -24,7 +24,7 @@ public class GoodsController {
     public ResultTemplate<ListTemplate<GoodsModel>> list() {
         List<Object> objectList = LocalCache.get(Constants.KEY_GOODS);
         List<GoodsModel> goodsModelList = objectList.stream().map(o -> (GoodsModel) o).collect(Collectors.toList());
-        ListTemplate<GoodsModel> listTemplate = new ListTemplate<GoodsModel>();
+        ListTemplate<GoodsModel> listTemplate = new ListTemplate<>();
         listTemplate.setContent(goodsModelList);
         return ResultTemplate.success(listTemplate);
     }

@@ -9,7 +9,7 @@ import javax.annotation.PostConstruct;
 public abstract class BaseData {
 
     protected void init() {
-
+        System.out.println("base data init");
     }
 
     @PostConstruct

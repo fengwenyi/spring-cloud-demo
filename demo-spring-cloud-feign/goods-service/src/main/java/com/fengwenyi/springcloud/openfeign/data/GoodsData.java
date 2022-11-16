@@ -23,6 +23,7 @@ public class GoodsData extends BaseData {
                 new GoodsModel().setId(3).setName("iPhone 14 Pro").setPrice(new BigDecimal(6000)));
         LocalCache.set(Constants.KEY_GOODS, "4",
                 new GoodsModel().setId(4).setName("iPhone 14 Pro Max").setPrice(new BigDecimal(9000)));
+        System.out.println("goods data init finished");
     }
 
 }

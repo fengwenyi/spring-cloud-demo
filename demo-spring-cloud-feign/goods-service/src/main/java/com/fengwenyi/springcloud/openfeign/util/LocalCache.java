@@ -20,6 +20,7 @@ public class LocalCache {
             dataMap = new ConcurrentHashMap<>();
         }
         dataMap.put(key, data);
+        map.put(bizCode, dataMap);
     }
 
     public static Object get(String bizCode, String key) {
