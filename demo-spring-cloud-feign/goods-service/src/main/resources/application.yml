@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: goods-service
+    name: openfeign-goods-service
 
 eureka:
   client:
