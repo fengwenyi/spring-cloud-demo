@@ -1,4 +1,4 @@
 server:
-  port: 9091
+  port: 9101
   servlet:
     context-path: /rpc-api

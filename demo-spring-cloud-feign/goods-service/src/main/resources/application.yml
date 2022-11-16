@@ -1,0 +1,11 @@
+server:
+  port: 9111
+
+spring:
+  application:
+    name: goods-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
