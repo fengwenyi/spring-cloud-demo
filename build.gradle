@@ -6,7 +6,7 @@ buildscript {
         springBootAdminVersion = "2.7.6"
         springCloudVersion = "2021.0.4"
         springCloudAlibabaVersion = "2021.1"
-        apiResultVersion = "2.7.0"
+        apiResultVersion = "2.7.3"
         JavaLibVersion = "2.2.0"
         okhttpVersion = "4.10.0"
         /*ext {
