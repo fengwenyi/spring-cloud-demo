@@ -78,6 +78,10 @@ org.springframework.cloud.openfeign.FeignAutoConfiguration *
 	- OkHttpFeignConfiguration
 	- HttpClient5FeignConfiguration
 
+org.springframework.cloud.openfeign.loadbalancer.FeignLoadBalancerAutoConfiguration
+    -> org.springframework.cloud.openfeign.loadbalancer.DefaultFeignLoadBalancerConfiguration.feignClient
+        -> org.springframework.cloud.openfeign.loadbalancer.FeignBlockingLoadBalancerClient.FeignBlockingLoadBalancerClient(feign.Client, org.springframework.cloud.client.loadbalancer.LoadBalancerClient, org.springframework.cloud.loadbalancer.support.LoadBalancerClientFactory)
+
 
 调用流程：
 
@@ -87,7 +91,28 @@ xxxFeignClient
 	-> feign.InvocationHandlerFactory.MethodHandler#invoke
 		-> feign.SynchronousMethodHandler#invoke
 			-> feign.SynchronousMethodHandler#executeAndDecode
+			    -> feign.SynchronousMethodHandler.targetRequest
+			        -> feign.RequestInterceptor.apply
+			        -> feign.Target.HardCodedTarget.apply
+			            -> feign.Target.HardCodedTarget.apply
+			                -> feign.RequestTemplate.target
+			                    -> feign.RequestTemplate.target
+			                -> feign.RequestTemplate.request
+			                    -> feign.Request.create(feign.Request.HttpMethod, java.lang.String, java.util.Map<java.lang.String,java.util.Collection<java.lang.String>>, feign.Request.Body, feign.RequestTemplate)
+			    -> org.springframework.cloud.openfeign.loadbalancer.FeignBlockingLoadBalancerClient.execute
+			        -> org.springframework.cloud.client.loadbalancer.ServiceInstanceChooser.choose(java.lang.String, org.springframework.cloud.client.loadbalancer.Request<T>)
+			        -> org.springframework.cloud.openfeign.loadbalancer.LoadBalancerUtils.executeWithLoadBalancerLifecycleProcessing(feign.Client, feign.Request.Options, feign.Request, org.springframework.cloud.client.loadbalancer.Request, org.springframework.cloud.client.loadbalancer.Response<org.springframework.cloud.client.ServiceInstance>, java.util.Set<org.springframework.cloud.client.loadbalancer.LoadBalancerLifecycle>, boolean)
+			            -> org.springframework.cloud.openfeign.loadbalancer.LoadBalancerUtils.executeWithLoadBalancerLifecycleProcessing(feign.Client, feign.Request.Options, feign.Request, org.springframework.cloud.client.loadbalancer.Request, org.springframework.cloud.client.loadbalancer.Response<org.springframework.cloud.client.ServiceInstance>, java.util.Set<org.springframework.cloud.client.loadbalancer.LoadBalancerLifecycle>, boolean, boolean)
+			                -> feign.Client.Default.execute
+			                    -> feign.Client.Default.convertAndSend
+			                    -> feign.Client.Default.convertResponse
 				-> feign.AsyncResponseHandler#handleResponse
+				    -> feign.AsyncResponseHandler.decode
+				        -> org.springframework.cloud.openfeign.support.ResponseEntityDecoder.decode
+				            -> org.springframework.cloud.openfeign.support.SpringDecoder.decode
+				                -> org.springframework.cloud.openfeign.support.SpringDecoder.FeignResponseAdapter
+				                -> org.springframework.web.client.HttpMessageConverterExtractor.extractData
+				                    -> org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType
 
 
 问题：
