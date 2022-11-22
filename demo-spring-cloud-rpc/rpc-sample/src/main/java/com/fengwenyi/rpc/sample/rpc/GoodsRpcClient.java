@@ -3,7 +3,6 @@ package com.fengwenyi.rpc.sample.rpc;
 import com.fengwenyi.api.result.ResultTemplate;
 import com.fengwenyi.rpc.MyRpc;
 import com.fengwenyi.rpc.model.GoodsModel;
-import com.fengwenyi.rpc.sample.MyResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -21,7 +20,7 @@ import java.util.List;
 public interface GoodsRpcClient {
 
     @GetMapping("/goods/list")
-    MyResult<List<GoodsModel>> getList();
+    ResultTemplate<List<GoodsModel>> getList();
 
     @GetMapping("/goods/get")
     ResultTemplate<GoodsModel> get(Integer id);
