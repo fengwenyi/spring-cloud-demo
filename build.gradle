@@ -1,56 +1,11 @@
-/*plugins {
-    id 'org.springframework.boot' version '2.6.0'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'java'
-}
-
-group = 'com.fengwenyi'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
-targetCompatibility = '17'
-
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
-
-repositories {
-    mavenCentral()
-}
-
-ext {
-    set('springBootAdminVersion', "2.4.3")
-    set('springCloudVersion', "2020.0.4")
-}
-
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-}
-
-dependencyManagement {
-    imports {
-        mavenBom "de.codecentric:spring-boot-admin-dependencies:${springBootAdminVersion}"
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-    }
-}
-
-test {
-    useJUnitPlatform()
-}*/
-
 // 编译脚本
 buildscript {
     ext {
-        // https://start.spring.io/actuator/info
-        springBootVersion = "2.6.3"
+        springBootVersion = "3.2.1"
         ext {
             set('springBootAdminVersion', "2.4.3")
-            set('springCloudVersion', "2021.0.1")
-            set('springCloudAlibabaVersion', "2021.1")
+            set('springCloudVersion', "2023.0.0")
+            set('springCloudAlibabaVersion', "2022.0.0.0")
         }
     }
 
@@ -71,9 +26,9 @@ buildscript {
 
 allprojects {
     group = 'com.fengwenyi'
-    version = '0.0.1-SNAPSHOT'
-//    sourceCompatibility = JavaVersion.VERSION_17
-//    targetCompatibility = JavaVersion.VERSION_17
+    version = '2023.0.0-SNAPSHOT'
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 description = "Spring Cloud Demo"
@@ -84,8 +39,8 @@ subprojects {
     apply plugin: "org.springframework.boot"
     apply plugin: "io.spring.dependency-management"
 
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter-actuator'
