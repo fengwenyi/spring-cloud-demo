@@ -14,3 +14,16 @@
 ## links
 
 - [spring cloud + gradle多模块示例](https://github.com/jkazama/sample-boot-micro)
+
+
+## 规划
+
+### 端口规划
+
+1010 1
+
+#### nacos
+
+10101~10109
+
+10101: demo-spring-cloud-nacos-discovery

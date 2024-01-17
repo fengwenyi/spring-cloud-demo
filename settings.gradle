@@ -1,36 +1,5 @@
 rootProject.name = 'spring-cloud-demo'
-
-include 'demo-eureka-server'
-include 'demo-eureka-client'
-//include 'demo-spring-cloud-feign-sentinel'
-//include 'demo-spring-cloud-feign-sentinel:provider'
-//findProject(':demo-spring-cloud-feign-sentinel:provider')?.name = 'provider'
-include 'demo-spring-cloud-feign-sentinel:provider:provider-api'
-//findProject(':demo-spring-cloud-feign-sentinel:provider:provider-api')?.name = 'provider-api'
-include 'demo-spring-cloud-feign-sentinel:consumer-service'
-//findProject(':demo-spring-cloud-feign-sentinel:consumer-service')?.name = 'consumer-service'
-
-//file("${rootDir}/demo-spring-cloud-feign-sentinel").eachDirMatch(~/demo-spring-cloud-feign-sentinel.*/) {
-//    include "demo-spring-cloud-feign-sentinel:${it.name}"
-//}
-
-//
-//file("${rootDir}/demo-spring-cloud-feign-sentinel").eachDirMatch(~/demo-spring-cloud-feign-sentinel.*/) {
-//    include "demo-spring-cloud-feign-sentinel:${it.name}"
-//}
-include 'demo-spring-cloud-feign-sentinel:provider:provider-service'
-//findProject(':demo-spring-cloud-feign-sentinel:provider:provider-service')?.name = 'provider-service'
-include 'demo-spring-boot-admin-server'
-include 'demo-spring-boot-admin-client'
-include 'demo-spring-cloud-alibaba-sentinel'
-include 'demo-spring-cloud-gateway'
-include 'demo-spring-cloud-feign'
-include 'demo-spring-cloud-feign:goods-service'
-findProject(':demo-spring-cloud-feign:goods-service')?.name = 'goods-service'
-include 'demo-spring-cloud-feign:goods-service:goods-api'
-findProject(':demo-spring-cloud-feign:goods-service:goods-api')?.name = 'goods-api'
-include 'demo-spring-cloud-feign:goods-service:goods-core'
-findProject(':demo-spring-cloud-feign:goods-service:goods-core')?.name = 'goods-core'
-include 'demo-spring-cloud-feign:goods-client'
-findProject(':demo-spring-cloud-feign:goods-client')?.name = 'goods-client'
+include 'demo-spring-cloud-nacos'
+include 'demo-spring-cloud-nacos:demo-spring-cloud-nacos-discovery'
+findProject(':demo-spring-cloud-nacos:demo-spring-cloud-nacos-discovery')?.name = 'demo-spring-cloud-nacos-discovery'
 

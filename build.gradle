@@ -12,11 +12,7 @@ buildscript {
     // 仓库配置
     repositories {
         mavenLocal()
-        maven { url 'https://maven.aliyun.com/repository/central' }
-        maven { url 'https://maven.aliyun.com/repository/spring' }
-        maven { url 'https://maven.aliyun.com/repository/google' }
-        maven { url 'https://repo.spring.io/release' }
-        maven { url 'https://repo.spring.io/milestone' }
+        mavenCentral()
     }
 
     dependencies {
@@ -27,14 +23,12 @@ buildscript {
 allprojects {
     group = 'com.fengwenyi'
     version = '2023.0.0-SNAPSHOT'
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
 }
 
 description = "Spring Cloud Demo"
 
 subprojects {
-//    apply plugin: "java"
+
     apply plugin: "java-library"
     apply plugin: "org.springframework.boot"
     apply plugin: "io.spring.dependency-management"
@@ -59,7 +53,6 @@ subprojects {
 
     repositories {
         mavenLocal()
-        maven { url "https://maven.aliyun.com/repository/public" }
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        mavenCentral()
     }
 }
