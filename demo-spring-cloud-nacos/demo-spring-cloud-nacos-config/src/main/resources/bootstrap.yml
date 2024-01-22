@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: demo-spring-cloud-nacos-config
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      username: nacos
+      password: nacos
+      config:
+        namespace: demo
+        file-extension: yml
+        group: spring-cloud
+        refresh-enabled: true
+
