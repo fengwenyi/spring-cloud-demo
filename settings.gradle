@@ -4,4 +4,6 @@ include 'demo-spring-cloud-nacos:demo-spring-cloud-nacos-discovery'
 findProject(':demo-spring-cloud-nacos:demo-spring-cloud-nacos-discovery')?.name = 'demo-spring-cloud-nacos-discovery'
 include 'demo-spring-cloud-nacos:demo-spring-cloud-nacos-config'
 findProject(':demo-spring-cloud-nacos:demo-spring-cloud-nacos-config')?.name = 'demo-spring-cloud-nacos-config'
+include 'demo-spring-cloud-nacos:demo-spring-cloud-nacos-sample'
+findProject(':demo-spring-cloud-nacos:demo-spring-cloud-nacos-sample')?.name = 'demo-spring-cloud-nacos-sample'
 

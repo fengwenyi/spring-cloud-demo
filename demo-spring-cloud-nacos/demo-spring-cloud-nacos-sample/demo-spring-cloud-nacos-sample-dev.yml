@@ -1,0 +1,9 @@
+server:
+  port: 10103
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        namespace: demo
+        group: spring-cloud
