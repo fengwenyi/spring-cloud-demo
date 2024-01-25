@@ -1,0 +1,14 @@
+server:
+  port: 10113
+
+spring:
+  application:
+    name: demo-spring-cloud-grpc-client
+
+grpc:
+  client:
+    demo-spring-cloud-grpc-server:
+      address: static://localhost:10112
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      negotiationType: plaintext

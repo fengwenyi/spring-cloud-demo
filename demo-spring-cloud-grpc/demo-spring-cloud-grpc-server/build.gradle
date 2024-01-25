@@ -1,0 +1,5 @@
+dependencies {
+    implementation project(':demo-spring-cloud-grpc:demo-spring-cloud-grpc-proto')
+    implementation 'net.devh:grpc-server-spring-boot-starter:2.15.0.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+}

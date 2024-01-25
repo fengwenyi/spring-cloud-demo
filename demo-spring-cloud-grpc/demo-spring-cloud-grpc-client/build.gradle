@@ -1,0 +1,7 @@
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'net.devh:grpc-client-spring-boot-starter:2.15.0.RELEASE'
+    implementation project(':demo-spring-cloud-grpc:demo-spring-cloud-grpc-proto')
+    implementation 'com.fengwenyi:JavaLib:2.2.7'
+    implementation 'com.fengwenyi:api-result:2.7.4'
+}
