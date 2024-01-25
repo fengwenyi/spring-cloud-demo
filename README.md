@@ -10,9 +10,9 @@ nacos
 
 gRPC
 
-- [ ] [demo-spring-cloud-grpc-proto](./demo-spring-cloud-grpc/demo-spring-cloud-grpc-proto) 【进度：0% 2024-01-25】
-- [ ] [demo-spring-cloud-grpc-server](./demo-spring-cloud-grpc/demo-spring-cloud-grpc-server) 【进度：0% 2024-01-25】
-- [ ] [demo-spring-cloud-grpc-client](./demo-spring-cloud-grpc/demo-spring-cloud-grpc-client) 【进度：0% 2024-01-25】
+- [x] [demo-spring-cloud-grpc-proto](./demo-spring-cloud-grpc/demo-spring-cloud-grpc-proto) 【进度：100% 2024-01-25】
+- [x] [demo-spring-cloud-grpc-server](./demo-spring-cloud-grpc/demo-spring-cloud-grpc-server) 【进度：100% 2024-01-25】
+- [x] [demo-spring-cloud-grpc-client](./demo-spring-cloud-grpc/demo-spring-cloud-grpc-client) 【进度：100% 2024-01-25】
 
 
 ## 规划
@@ -29,11 +29,11 @@ gRPC
 - 10102: demo-spring-cloud-nacos-config
 - 10103: demo-spring-cloud-nacos-sample
 
+#### gRPC
+
+1011 1 ~ 1011 9
 
 ## links
 
 - [spring cloud + gradle多模块示例](https://github.com/jkazama/sample-boot-micro)
 
-#### gRPC
-
-1011 1 ~ 1011 9
